@@ -1,42 +1,3 @@
-#include <iostream>
-#include <array>
-#include <string>
-
-using namespace std;
-
-//Limpiar la pantalla
-void clearScreen() {
-    #ifdef _WIN32
-    system("cls");
-    #else
-    int res = system("clear");
-    (void)res;
-    #endif
-}
-
-//Clase ChessPiece
-class ChessPiece {
-    public: 
-    int x;
-    int y;
-    int id[3]; //Tipo de pieza, color, id
-
-    //Calcular casillas a las que se puede mover cada pieza
-    void calcularCasillas(int tablero[8][8], int id) {};
-};
-
-class Pawn: public ChessPiece {
-    int movs;
-};
-
-class Tower: public ChessPiece {
-    int movs;
-};
-
-class King: public ChessPiece {
-    int movs;
-};
-
 class Board {
     public: 
     int functionalBoard[8][8];
@@ -140,7 +101,6 @@ class Board {
             menaceBlackBoard[i][j] = 0;
         }
     }
-
     for(i = 0; i < 8; i++){
         for(j = 0; j < 8; j++){
             pieza = to_string(piecesBoard[i][j]);
@@ -158,11 +118,11 @@ class Board {
                         break;
                     case 7:
                         break;
+                    }
                 }
             }
         }
     }
-}
 
     //Verificar si el rey de un color está en jaque
     int verificarJaque(int color){
@@ -176,7 +136,7 @@ class Board {
     }
 
     return 0; //No está en jaque
-}
+    }
 
     int verificarMate(int color){
         int check = 0;
@@ -201,44 +161,8 @@ class Board {
                 }
             }
         }
-}
+    }
 
     void moverPieza(int tablero[8][8], int id) {
     };
-};
-
-int main(void) {
-    int color;
-    Board b;
-    b.generateBoard();
-    b.colocatePieces();
-    b.printBoard();
-
-    //verificarMate(color){};
-    b.verificarJaque(color);
-    //calcularCasillas(id);
-    //moverPieza();
-    /*
-    int color = 1;
-    bool game_over = false;
-
-    //Turnos
-    do {
-        clearScreen();
-        b.printBoard();
-        int startX, startY, endX, endY;
-        cout << "Turno del jugador " << turn << " (Formato: posicionx1 posiciony1 posicionx2 posiciony2): ";
-        cin >> startX >> startY >> endX >> endY;
-
-        if (b.movePiece(startX, startY, endX, endY, color)) {
-            clearScreen();
-            b.printBoard();
-            cout << "El rey ha sido capturado. Jugador " << color << " gana!" << endl;
-            game_over = true;
-        } else {
-            color = (color == 1) ? 2 : 1;
-        }
-    } while (!game_over);
-    */
-    return 0;
 };
