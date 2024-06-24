@@ -1,7 +1,7 @@
 #ifndef CLEARSCREEN_H
 #define CLEARSCREEN_H
 
-#include<iostream>
+#include <iostream>
 
 void clearScreen();
 
