@@ -14,7 +14,7 @@ int main(void) {
     b.colocatePieces();
     b.printBoard();
 
-    //verificarMate(color){};
+    //b.verificarMate(color){};
     b.verificarJaque(color);
     //calcularCasillas(id);
     //moverPieza();
